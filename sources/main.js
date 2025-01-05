@@ -97,6 +97,13 @@ const App = () => {
     })();
   }, [input, fileName]);
 
+  async function formatInput() {
+    const main = await mainRef.current.javap_web.Main;
+    const code = await main.format(input);
+    setInput(code);
+    cm.current.setValue(code);
+  }
+
   [
     ["input", input],
     ["file_name", fileName],
@@ -108,14 +115,21 @@ const App = () => {
 
   return html` <div class="row">
     <div class="col">
-      <div>
-        <label for="file_name">file name: </label>
-        <input
-          maxlength="128"
-          id="file_name"
-          value=${fileName}
-          oninput=${(x) => setFileName(x.target.value)}
-        /><span>.java</span>
+      <div class="row">
+        <div class="col">
+          <label for="file_name">file name: </label>
+          <input
+            maxlength="128"
+            id="file_name"
+            value=${fileName}
+            oninput=${(x) => setFileName(x.target.value)}
+          /><span>.java</span>
+        </div>
+        <div class="col">
+          <button class="btn btn-secondary" onclick=${() => formatInput()}>
+            format input java code
+          </button>
+        </div>
       </div>
       <div
         id="input"

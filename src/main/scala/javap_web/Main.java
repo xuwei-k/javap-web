@@ -1,5 +1,7 @@
 package javap_web;
 
+import com.google.googlejavaformat.java.Formatter;
+import com.google.googlejavaformat.java.FormatterException;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -88,6 +90,15 @@ public final class Main {
               Arrays.stream(e.getStackTrace())
                   .map(Object::toString)
                   .collect(Collectors.joining())));
+    }
+  }
+
+  public static String format(final String source) {
+    try {
+      return new Formatter().formatSourceAndFixImports(source);
+    } catch (FormatterException e) {
+      e.printStackTrace();
+      return source;
     }
   }
 }
