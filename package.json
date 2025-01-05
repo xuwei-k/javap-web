@@ -1,0 +1,20 @@
+{
+  "name": "javap-web",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xuwei-k/javap-web.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xuwei-k/javap-web/issues"
+  },
+  "homepage": "https://github.com/xuwei-k/javap-web#readme",
+  "devDependencies": {
+    "prettier": "^3.4.1"
+  }
+}
