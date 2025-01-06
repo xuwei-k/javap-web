@@ -25,12 +25,13 @@ TaskKey[Unit]("dist") := {
   val jarFiles = (Compile / fullClasspathAsJars).value.map(_.data).filterNot(f => exclude(f.getName)) :+ toolsJar
   val dir = file("sources") / "dist"
   IO.delete(dir)
+  def jarName(x: File): String = java.net.URLEncoder.encode(x.getName, "UTF-8")
   jarFiles.foreach { jar =>
-    IO.copyFile(jar, dir / jar.getName)
+    IO.copyFile(jar, dir / jarName(jar))
   }
   IO.write(
     dir / "jar_files.js",
-    jarFiles.map(x => s"""  "${x.getName}"""").sorted.mkString("export const jarNames = [\n", ",\n", "\n]\n")
+    jarFiles.map(x => s"""  "${jarName(x)}"""").sorted.mkString("export const jarNames = [\n", ",\n", "\n]\n")
   )
 }
 
