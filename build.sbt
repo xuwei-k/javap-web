@@ -25,7 +25,7 @@ TaskKey[Unit]("dist") := {
   val jarFiles = (Compile / fullClasspathAsJars).value.map(_.data).filterNot(f => exclude(f.getName)) :+ toolsJar
   val dir = file("sources") / "dist"
   IO.delete(dir)
-  def jarName(x: File): String = java.net.URLEncoder.encode(x.getName, "UTF-8")
+  def jarName(x: File): String = x.getName.replace('%', '-')
   jarFiles.foreach { jar =>
     IO.copyFile(jar, dir / jarName(jar))
   }
