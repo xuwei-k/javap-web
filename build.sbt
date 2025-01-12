@@ -47,8 +47,8 @@ libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest-freespec" % "3.2.19" % Test,
   "org.scala-sbt" %% "io" % "1.10.4" % Test,
   "org.slf4j" % "slf4j-simple" % "2.0.16" % Test,
-  "ws.unfiltered" %% "unfiltered-filter" % "0.10.4" % Test,
-  "ws.unfiltered" %% "unfiltered-jetty" % "0.10.4" % Test,
+  "ws.unfiltered" %% "unfiltered-filter" % "0.10.5" % Test,
+  "ws.unfiltered" %% "unfiltered-jetty" % "0.10.5" % Test,
 )
 
 fork / run := true
