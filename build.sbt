@@ -6,6 +6,8 @@ crossPaths := false
 
 name := "javap_web"
 
+evictionErrorLevel := Level.Warn
+
 lazy val toolsJar: File = {
   val home = file(scala.util.Properties.javaHome)
   val f1 = home / "lib" / "tools.jar"
