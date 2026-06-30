@@ -142,8 +142,7 @@ const App = () => {
       <pre
         style="width: 100%; height: 800px; background-color:rgb(66, 66, 66);"
       >
-${output}</pre
-      >
+${output}</pre>
     </div>
   </div>`;
 };
